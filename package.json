@@ -5,7 +5,7 @@
   "type": "module",
   "engines":{
     "node": "v24.x"
-  }
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
