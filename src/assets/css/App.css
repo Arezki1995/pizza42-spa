@@ -1,0 +1,68 @@
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #e9ecf1;
+  min-height: 100%;
+}
+
+/* ### LAYOUT ### */
+.layout{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ### NAV BAR ### */
+.nav-bar{
+  display: flex;
+  position: sticky;
+  margin-bottom: 2rem;
+  top:0;
+  z-index: 10;
+  width: 100%;
+  height: 100px;
+  flex-direction: row wrap;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1rem;
+  background-color: var(--primary-color);
+  box-shadow: var(--shadow-settings);
+}
+
+.navigation{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  min-width: 15rem;
+  height: 100%;
+  gap: 1rem;
+}
+
+
+
+/* ### MAIN CONTAINER ### */
+.container {
+  display: flex;
+  min-height: 70vh;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+
+/* ### FOOTER ### */
+.layout-footer{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 0px;
+  padding-top: 1rem;
+  background-color: var(--secondary-color);
+  color: white;
+  height: 200px;
+  text-align: center;
+}
