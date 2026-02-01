@@ -79,7 +79,7 @@ body {
 .pizza-menu-list{
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2rem;
   align-items: center;
   justify-content: center;
   max-width: 80%;
