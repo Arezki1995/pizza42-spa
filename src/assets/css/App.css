@@ -67,6 +67,43 @@ body {
 }
 
 
+/* ## Nav profile ## */
+.nav-profile{
+  display: flex;
+  align-items: center;
+  min-width: 300px;
+  padding: 0.4rem;
+}
+
+
+.nav-profile button{
+  width: 5rem;
+  height: 1.8rem;
+}
+
+.nav-profile-picture{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px white solid;
+}
+
+.nav-profile-details{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 1rem;
+  gap: 0.2rem;
+}
+
+.nav-profile-username{
+  white-space: nowrap;
+  color: white;
+  font-weight: 500;
+  padding: 0.1rem;
+}
+
+
 /* ### MAIN CONTAINER ### */
 .container {
   display: flex;
