@@ -1,5 +1,5 @@
+import Profile from "../components/profile/profile";
+
 export default function ProfilePage() {
-    return (
-        <div>Profile Page TODO</div>
-    );
+  return <Profile />;
 }
