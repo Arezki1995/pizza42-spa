@@ -11,7 +11,7 @@ export default function Cart() {
   }
  
   return (
-    <div className="card cart-content">
+    <div className="card cart">
       {cart.map(item => (
         <CartItem key={item.id} item={item} />
       ))}
