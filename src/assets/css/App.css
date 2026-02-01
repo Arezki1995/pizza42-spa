@@ -6,6 +6,12 @@ body {
   min-height: 100%;
 }
 
+.card{
+  background-color: var(--card-color);
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--shadow-settings);
+}
+
 /* ### LAYOUT ### */
 .layout{
   display: flex;
@@ -69,8 +75,66 @@ body {
   align-items: center;
 }
 
+/* ### MENU ###*/
+.pizza-menu-list{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  max-width: 80%;
 
+}
 
+.menu-item{
+  display: flex;
+  flex-direction: row wrap;
+  width: 30rem;
+  padding: 15px;
+}
+
+.menu-item-img{
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+
+.menu-item-img img{
+  margin-right: 15px;
+  width: 150px;
+  height: 150px;
+  border-radius: var(--card-border-radius);
+}
+
+.menu-item-details{
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.menu-item-name{
+  font-size: 1rem;
+  font-weight: 600;
+  flex-grow: 1;
+}
+
+.menu-item-description{
+  font-size: 0.9rem;
+  font-weight: 400;
+  font-style: italic;
+  flex-grow: 2;
+}
+
+.menu-item-price{
+  font-size: 1.1rem;
+  font-weight: 600;
+  flex-grow: 1;
+}
+
+.menu-item-action{
+  flex-grow: 1;
+}
 
 /* ### FOOTER ### */
 .layout-footer{
