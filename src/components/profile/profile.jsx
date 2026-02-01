@@ -2,16 +2,13 @@ import { useAuth0 } from "@auth0/auth0-react";
 import LogoutButton from "../auth/LogoutButton.jsx";
 
 function Profile() {
-    const { user, isAuthenticated, isLoading } = useAuth0();
+    const { user } = useAuth0();
 
-    if (isLoading) {
-        return <div className="loading-text">Loading profile...</div>;
-    }
 
     return (
         <div className="profile">
 
-            {isAuthenticated && user ? (
+            { user ? (
                 <>
                     <div className="profile-card">
                         <img
@@ -43,9 +40,6 @@ function Profile() {
 
             ) : null
             }
-
-
-
         </div>
     );
 };
