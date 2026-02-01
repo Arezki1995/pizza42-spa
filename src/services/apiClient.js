@@ -10,7 +10,8 @@ export async function apiFetch(path, options = {}) {
   });
 
   if (!response.ok) {
-    throw new Error("API error");
+    console.log(response);
+    throw new Error("API error : type => " + response.type);
   }
 
   return response.json();
