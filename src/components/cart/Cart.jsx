@@ -2,7 +2,7 @@ import { useCart } from "../../context/CartContext";
 import CartItem from "./CartItem";
 
 export default function Cart() {
-  const { cart, clearCart, isEmpty} = useCart();
+  const { cart, clearCart, isEmpty, totalPrice} = useCart();
 
   if(isEmpty){
     return(
@@ -12,12 +12,21 @@ export default function Cart() {
  
   return (
     <div className="card cart">
-      {cart.map(item => (
-        <CartItem key={item.id} item={item} />
-      ))}
+      <div className="cart-title">Cart</div>
 
+      <div className="cart-content">
+             {cart.map(item => (
+        <CartItem key={item.id} item={item} />
+      ))} 
+      </div>
+
+      <div className="cart-summary">
+        <span>Total</span>
+        <div className="cart-total-price">{totalPrice}€</div>
+      </div>
       <div className="cart-actions">
-        <button onClick={() => clearCart()}>Clear Cart</button>
+        <button className="btn-cart-clear" onClick={() => clearCart()}>Clear Cart</button>
+        <button className="btn-cart-order"> Order</button>  
       </div>
     </div>
   );
