@@ -15,7 +15,7 @@ export default function MenuItem({ pizza }) {
                 <div className="menu-item-description">{pizza.description}</div>
                 <div className="menu-item-price">{pizza.price}€</div>
                 <div className="menu-item-action">
-                    <button onClick={()=> addToCart(pizza)}>Add</button>        
+                    <button className="btn-add-to-cart" onClick={()=> addToCart(pizza)}>Add</button>        
                 </div>
             </div>
         </div>

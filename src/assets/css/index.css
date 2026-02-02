@@ -5,9 +5,19 @@
 
   --primary-color :#a30404;
   --secondary-color : #222;
+  --neutral-color : #e9ecf1;
   --card-color : white;
-  --card-border-radius : 10px;
+  --card-border-radius : 15px;
   --shadow-settings : 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  --glow-settings : 0 4px 8px 0 #222;
+
+  --container-animation-duration: 1s;
+
+  --color-green-btn : rgb(5, 136, 5);
+  --color-green-btn-hover : rgb(2, 179, 2);
+
+  --color-red-btn : var(--primary-color);
+  --color-red-btn-hover : red;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

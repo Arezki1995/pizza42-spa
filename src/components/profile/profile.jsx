@@ -10,7 +10,7 @@ function Profile() {
 
             { user ? (
                 <>
-                    <div className="profile-card">
+                    <div className="card profile-card">
                         <img
                             src={user.picture}
                             alt={user.name || 'User'}

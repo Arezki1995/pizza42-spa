@@ -21,7 +21,7 @@ export default function Cart() {
       </div>
 
       <div className="cart-summary">
-        <span>Total</span>
+        <span>Total:</span>
         <div className="cart-total-price">{totalPrice}€</div>
       </div>
       <div className="cart-actions">

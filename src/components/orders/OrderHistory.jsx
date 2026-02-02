@@ -38,8 +38,8 @@ export default function OrdersHistory() {
   if (!isAuthenticated) return null;
 
   return (
-    <div className="orders-history">
-      <h2>Order History</h2>
+    <div className="card orders-history">
+      <div className="orders-history-title">Order History</div>
 
       {loading && <p>Fetching your orders…</p>}
 
@@ -48,15 +48,15 @@ export default function OrdersHistory() {
       )}
 
       {!loading && !error && orders.length === 0 && (
-        <div className="empty-orders">
-          <p>You haven’t placed any orders yet 🍕</p>
+        <div className="card empty-orders">
+          <p>You haven’t placed any orders yet</p>
           <p>Once you do, they’ll appear here.</p>
         </div>
       )}
 
       {!loading && !error && orders.length > 0 &&
         orders.map((order) => (
-            <OrderHistoryItem key={order.id} ={order}/>
+            <OrderHistoryItem key={order.id} order={order}/>
         ))
       }
     </div>
