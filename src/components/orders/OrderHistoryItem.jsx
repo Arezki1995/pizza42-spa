@@ -15,9 +15,9 @@ export default function OrderHistoryItem({ order }) {
             <td className="order-date">{formatDate(order.timestamp)}</td>
             <td className="order-content">
                 {order.items.map((item, index) => (   
-                    <td key={index} className="order-content">
+                    <div key={index} className="order-content">
                         <span>pizza_id:{item.pizza_id} x Qte:{item.quantity}</span>
-                    </td>
+                    </div>
                 ))}
             </td>
         </tr>
