@@ -273,7 +273,23 @@ body {
 }
 
 .menu-item-action {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
   flex-grow: 1;
+}
+
+.menu-item-count{
+  width: 2rem;
+  text-align: center;
+  background-color: var(--neutral-color);
+  padding: 0.2rem;
+  color: #222;
+}
+
+.menu-item-action button{
+  height: 2.5rem;
 }
 
 .btn-add-to-cart {
