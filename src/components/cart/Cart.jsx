@@ -1,13 +1,20 @@
 import { useCart } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
+import Message from "../nav/Message";
 
 export default function Cart() {
   const { cart, clearCart, isEmpty, totalPrice} = useCart();
 
   if(isEmpty){
     return(
-      <div>The cart is currently empty. Add items from the menu.</div>
+      <Message
+        title="Info"
+        text="The cart is currently empty. Add items from the menu."
+      >
+      <Link to="/menu">Return to Menu</Link>
+      </Message>
+
     );
   }
  

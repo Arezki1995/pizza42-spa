@@ -12,6 +12,7 @@ body {
   border-radius: var(--card-border-radius);
   border: 1px #777 solid;
   transition: box-shadow 0.5s;
+  padding: 1rem;
 }
 
 .card:hover {
@@ -118,18 +119,43 @@ body {
   align-items: center;
 }
 
+/* ### MESSAGE ###*/
+.message-box{
+  padding: 1rem;
+}
 
+.message-title{
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.message-text{
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
 
 /* ### MENU ###*/
+.menu-title{
+  padding: 1rem;
+  width: 20rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
 .pizza-menu-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 3rem;
   align-items: center;
   justify-content: center;
   max-width: 80%;
   animation-name: containerAnimation;
   animation-duration: var(--container-animation-duration);
+  margin-bottom: 5rem;
 }
 
 .menu-item {
@@ -412,7 +438,7 @@ body {
   flex-grow: 1;
 
   background-color: white;
-  border-radius: 10px;
+  border-radius: var(--card-border-radius);
   padding: 1rem;
   animation-name: containerAnimation;
   animation-duration: var(--container-animation-duration);

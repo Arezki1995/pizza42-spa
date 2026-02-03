@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchMenu } from "../services/menuApi";
 import Menu from "../components/menu/Menu";
+import Message from "../components/nav/Message";
 
 function MenuPage() {
   const [menu, setMenu] = useState([]);
@@ -14,11 +15,25 @@ function MenuPage() {
       .finally(() => setLoading(false));
   }, []);
 
-  if (loading) return <div>Loading menu...</div>;
-  if (error) return <div>Error loading menu</div>;
+  if (loading) return (
+    <Message 
+        title="Info"
+        text="Loading menu..."
+    ></Message>
+  );
+  
+  if (error) return (
+      <Message
+        title="Error"
+        text="Error loading menu"
+      ></Message>
+  );
 
   return (
-    <Menu menu={menu} />
+    <>
+      <div className="card menu-title">Menu</div>
+      <Menu menu={menu} />  
+    </>
   );
 }
 

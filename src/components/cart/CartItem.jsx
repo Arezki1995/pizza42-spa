@@ -17,6 +17,7 @@ export default function CartItem({ item }) {
         <div className="cart-item-quantity">{item.quantity}</div>
 
         <CartItemAction item_id={item.id}/>
+
       </div>
     </div>
   );
