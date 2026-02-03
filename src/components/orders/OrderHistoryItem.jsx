@@ -10,20 +10,16 @@ function formatDate(isoDate) {
 export default function OrderHistoryItem({ order }) {
 
     return (
-        <div className="order-card">
-            <div className="order-id">ID#{order.id}</div>
-            <div className="order-date">
-                {formatDate(order.timestamp)}
-            </div>
-
-            <ul className="order-content">
-                {order.items.map((item, index) => (
-                    <li key={index}>
-                        <span>pizza_id:{item.pizza_id} x </span>
-                        <span>Qte:{item.quantity}</span>
-                    </li>
+        <tr>
+            <td className="order-id">#{order.id}</td>
+            <td className="order-date">{formatDate(order.timestamp)}</td>
+            <td className="order-content">
+                {order.items.map((item, index) => (   
+                    <td key={index} className="order-content">
+                        <span>pizza_id:{item.pizza_id} x Qte:{item.quantity}</span>
+                    </td>
                 ))}
-            </ul>
-        </div>
+            </td>
+        </tr>
     );
 }

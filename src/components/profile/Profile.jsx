@@ -6,11 +6,13 @@ function Profile() {
 
 
     return (
-        <div className="profile">
-
-            { user ? (
+        <>
+            {user ? (
                 <>
+
                     <div className="card profile-card">
+                        <div className="profile-title">Profile</div>
+                        <div className="profile-subtitle">(Auth0 user object)</div>
                         <img
                             src={user.picture}
                             alt={user.name || 'User'}
@@ -27,7 +29,7 @@ function Profile() {
                                 <span><b>Email: </b>{user.email ?? "email unavailable"}</span>
                             </div>
                             <div className="profile-email-verified">
-                                <span><b>Email verified: </b>{(user.email_verified) ? ("Yes") : ("No") }</span>
+                                <span><b>Email verified: </b>{(user.email_verified) ? ("Yes") : ("No")}</span>
                             </div>
                             <div className="profile-update-date" >
                                 <span><b>Updated at: </b>{user.updated_at}</span>
@@ -40,7 +42,8 @@ function Profile() {
 
             ) : null
             }
-        </div>
+
+        </>
     );
 };
 
