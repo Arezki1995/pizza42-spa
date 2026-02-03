@@ -426,6 +426,8 @@ body {
   margin: 1rem;
 }
 
+/* ### Oders history ###*/
+
 .orders-history {
   display: flex;
   flex-direction: column;
@@ -438,6 +440,53 @@ body {
   animation-name: containerAnimation;
   animation-duration: var(--container-animation-duration);
 }
+
+.orders-history-title{
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.orders-history-subtitle{
+    font-size: 0.8rem;
+}
+
+.orders-history-list{
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.order-card{
+  display: flex;
+  flex-direction: row;
+    border: 1px var(--neutral-color) solid;
+}
+
+.order-id,
+.order-date,
+.order-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+
+}
+
+.order-id{
+  flex-grow: 1;
+  background-color: var(--neutral-color);
+  font-weight: 500;
+}
+
+.order-date{
+  flex-grow: 3;
+}
+
+.order-content li{
+  margin-left: 1rem;
+}
+
+
 
 @media screen {}
 
