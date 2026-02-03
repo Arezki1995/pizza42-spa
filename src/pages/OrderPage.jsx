@@ -1,6 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { useCart } from "../context/CartContext";
 import { createOrder } from "../services/orderApi";
+import { FaRocket } from "react-icons/fa6";
 
 export default function OrderPage() {
   
@@ -47,7 +48,7 @@ export default function OrderPage() {
         <div className="cart-total-price">{totalPrice}€</div>
       </div>
       <button className="btn-confirm-order" onClick={handleSubmitOrder}>
-        Confirm Order
+        <FaRocket /> Confirm Order
       </button>
     </div>
   );

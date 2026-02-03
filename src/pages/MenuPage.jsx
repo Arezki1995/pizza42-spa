@@ -4,6 +4,7 @@ import { useCart } from "../context/CartContext";
 import { fetchMenu } from "../services/menuApi";
 import Menu from "../components/menu/Menu";
 import Message from "../components/nav/Message";
+import { FaCartShopping } from "react-icons/fa6";
 
 function MenuPage() {
   const [menu, setMenu] = useState([]);
@@ -38,7 +39,7 @@ function MenuPage() {
       <div className="card menu-title">Menu</div>
       <Menu menu={menu} />  
       {!isEmpty && (
-        <Link to="/cart" className="cart-shortcut" > Go to Cart<span className="cart-shortcut-count">{totalItems}</span>
+        <Link to="/cart" className="cart-shortcut" > Go to <FaCartShopping /><span className="cart-shortcut-count">{totalItems}</span>
         </Link>
       )}
     </>

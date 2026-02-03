@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { useCart } from "../../context/CartContext";
 import CartItemAction from "../cart/CartItemAction";
+import { FaCartPlus } from "react-icons/fa6";
 
 const STATIC_IMAGES_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -19,9 +20,8 @@ export default function MenuItem({ pizza }) {
                 <img src={STATIC_IMAGES_BASE_URL + pizza.image_path} alt={pizza.name} />
             </div>
             <div className="menu-item-details">
-                <div className="menu-item-name">{pizza.name}</div>
+                <div className="menu-item-name">{pizza.name}  ({pizza.price}€)</div>
                 <div className="menu-item-description">{pizza.description}</div>
-                <div className="menu-item-price">{pizza.price}€</div>
                 <div className="menu-item-action">
                     
                     {quantity > 0 ? (
@@ -30,7 +30,7 @@ export default function MenuItem({ pizza }) {
                             <CartItemAction item_id={pizza.id} />
                         </>
                     ):(
-                      <button className="btn-add-to-cart" onClick={()=> addToCart(pizza)}>Add</button>  
+                      <button className="btn-add-to-cart" onClick={()=> addToCart(pizza)}><FaCartPlus /></button>  
                     )
                     }
                 </div>
