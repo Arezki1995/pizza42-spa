@@ -3,7 +3,7 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background-color: #e9ecf1;
   min-height: 100%;
-  background-image: url("https://pizza42-api-b9a56ba9cfb9.herokuapp.com/images/pizza42-background.jpg");
+  background-image: url("../images/pizza42-background.jpg");
   background-size: cover;
 }
 
@@ -41,6 +41,25 @@ body {
   gap: 1rem;
   background-color: var(--primary-color);
   box-shadow: var(--shadow-settings);
+}
+
+.logo-bar{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.company-name{
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.logo-bar-logo img{
+  width: 100px;
+  height: 95px;
 }
 
 .navigation {
