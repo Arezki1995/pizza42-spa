@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { fetchMyOrders } from "../../services/orderApi";
 import OrderHistoryItem from "./OrderHistoryItem";
 
+const ORDER_HISTORY_CLAIM = "http://pizza42.com/order_history";
+
 export default function OrdersHistory() {
-  const { isAuthenticated, getAccessTokenSilently } = useAuth0();
+  const { isAuthenticated, getIdTokenClaims } = useAuth0();
 
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -13,27 +14,28 @@ export default function OrdersHistory() {
   useEffect(() => {
     if (!isAuthenticated) return;
 
-    async function loadOrders() {
+    async function loadOrdersFromToken() {
       try {
-        const accessToken = await getAccessTokenSilently({
-          authorizationParams: {
-            audience: import.meta.env.VITE_AUTH0_AUDIENCE,
-            scope: "read:orders",
-          },
-        });
+        const claims = await getIdTokenClaims();
 
-        const data = await fetchMyOrders(accessToken);
-        setOrders(data.orders ?? []);
+        const orderHistory = claims?.[ORDER_HISTORY_CLAIM];
+
+        if (!orderHistory) {
+          setOrders([]);
+          return;
+        }
+
+        setOrders(orderHistory);
       } catch (err) {
         console.error(err);
-        setError("We couldn’t load your orders right now.");
+        setError("We couldn’t load your order history.");
       } finally {
         setLoading(false);
       }
     }
 
-    loadOrders();
-  }, [isAuthenticated, getAccessTokenSilently]);
+    loadOrdersFromToken();
+  }, [isAuthenticated, getIdTokenClaims]);
 
   if (!isAuthenticated) return null;
 
@@ -41,7 +43,7 @@ export default function OrdersHistory() {
     <div className="card orders-history">
       <div className="orders-history-title">Order History</div>
 
-      {loading && <p>Fetching your orders…</p>}
+      {loading && <p>Loading your order history…</p>}
 
       {!loading && error && (
         <p className="error">{error}</p>
@@ -56,7 +58,7 @@ export default function OrdersHistory() {
 
       {!loading && !error && orders.length > 0 &&
         orders.map((order) => (
-            <OrderHistoryItem key={order.id} order={order}/>
+          <OrderHistoryItem key={order.id} order={order} />
         ))
       }
     </div>
