@@ -12,7 +12,6 @@ export default function Navigation() {
       {isAuthenticated ? (
         <>
           <Link to="/profile">Profile</Link>
-          <Link to="/order">Order</Link>
         </>
       ) : null}
     </div>

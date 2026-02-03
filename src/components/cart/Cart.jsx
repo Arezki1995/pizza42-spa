@@ -1,4 +1,5 @@
 import { useCart } from "../../context/CartContext";
+import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
 
 export default function Cart() {
@@ -26,7 +27,7 @@ export default function Cart() {
       </div>
       <div className="cart-actions">
         <button className="btn-cart-clear" onClick={() => clearCart()}>Clear Cart</button>
-        <button className="btn-cart-order"> Order</button>  
+        <Link className="btn-cart-order" to="/order">Order</Link>
       </div>
     </div>
   );
