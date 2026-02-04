@@ -5,13 +5,18 @@ import { FaRocket } from "react-icons/fa6";
 
 export default function OrderPage() {
   
-  const { getAccessTokenSilently, isAuthenticated } = useAuth0();
+  const { user, getAccessTokenSilently, isAuthenticated } = useAuth0();
   const { cart, clearCart, totalPrice } = useCart();
 
   async function handleSubmitOrder() {
     if (!isAuthenticated) {
       alert("You must be logged in to order");
       return;
+    }
+
+    if (!user.email_verified){
+      alert("You need to verify your email to place an order!");
+      return; 
     }
 
     try {
@@ -29,7 +34,6 @@ export default function OrderPage() {
         })),
       };
 
-      console.log(orderPayload);
       await createOrder(orderPayload, accessToken);
 
       clearCart();
