@@ -3,11 +3,13 @@ import { useAuth0 } from "@auth0/auth0-react";
 import OrderHistoryItem from "./OrderHistoryItem";
 
 const ORDER_HISTORY_CLAIM = "http://pizza42.com/order_history";
+const MARKETING_SEGMENT_CLAIM = "http://pizza42.com/marketing/segment";
 
 export default function OrdersHistory() {
   const { isAuthenticated, getIdTokenClaims } = useAuth0();
 
   const [orders, setOrders] = useState([]);
+  const [segment, setSegment] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -18,8 +20,10 @@ export default function OrdersHistory() {
       try {
         const claims = await getIdTokenClaims();
         const orderHistory = claims?.[ORDER_HISTORY_CLAIM];
+        const marketingSegment = claims?.[MARKETING_SEGMENT_CLAIM];
 
         setOrders(orderHistory ?? []);
+        setSegment(marketingSegment ?? "");
       } catch (err) {
         console.error(err);
         setError("We couldn’t load your order history.");
@@ -37,7 +41,7 @@ export default function OrdersHistory() {
     <div className="card orders-history">
       <div className="orders-history-title">Order History</div>
       <div className="orders-history-subtitle">(Based on Auth0 ID token custom claim)</div>
-
+      <div><b>Marketing segment :</b> {segment}</div>
       {loading && <p>Loading your order history…</p>}
 
       {!loading && error && <p className="error">{error}</p>}
