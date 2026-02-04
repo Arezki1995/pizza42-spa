@@ -35,6 +35,11 @@ body {
   margin-bottom: 1rem;
 }
 
+.email-verification-banner button{
+  margin-left: 1rem;
+
+}
+
 /* ### NAV BAR ### */
 .nav-bar {
   display: flex;
@@ -586,6 +591,21 @@ body {
 .profile-details {
   text-align: left;
   margin: 1rem;
+}
+
+.profile-card button{
+  padding: 0.5rem;
+  min-width: 10rem;
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 1rem;
+  margin: 0.2rem;
+  transition: background-color 0.2s;
+}
+
+.profile-card button:hover{
+  background-color: red;
 }
 
 /* ### Oders history ###*/

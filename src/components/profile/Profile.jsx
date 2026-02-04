@@ -2,7 +2,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import LogoutButton from "../auth/LogoutButton.jsx";
 
 function Profile() {
-    const { user } = useAuth0();
+    const { user, loginWithRedirect } = useAuth0();
 
 
     return (
@@ -35,6 +35,7 @@ function Profile() {
                                 <span><b>Updated at: </b>{user.updated_at}</span>
                             </div>
                         </div>
+                        <button onClick={()=> loginWithRedirect()}>Re-login</button>
                         <LogoutButton />
                     </div>
 
