@@ -11,7 +11,7 @@ export async function apiFetch(path, options = {}) {
 
   if (!response.ok) {
     console.log(response);
-    throw new Error("API error : type => " + response.type);
+    throw new Error(`[API ERROR] status:"${response.status}" statusText:"${response.statusText}"`);
   }
 
   return response.json();
