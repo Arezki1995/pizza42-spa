@@ -40,3 +40,21 @@ A React + Vite pizza ordering application with authentication, menu browsing, ca
 
 ### Styling
 - **`src/assets/css/`** - Global and component styles
+
+## Environment Variables
+
+Environment variables are required to start the app (see `example.env`):
+
+```env
+VITE_AUTH0_DOMAIN=https://your-auth-domain.com
+VITE_AUTH0_CLIENT_ID=your-client-id
+VITE_AUTH0_AUDIENCE=your-audience
+VITE_API_BASE_URL=your-api-base-url
+VITE_CUSTOM_CLAIM_NAMESPACE=your-custom-claim-namespace
+```
+
+- **VITE_AUTH0_DOMAIN** - Auth0 tenant domain for authentication
+- **VITE_AUTH0_CLIENT_ID** - Auth0 application client ID
+- **VITE_AUTH0_AUDIENCE** - Auth0 API audience identifier
+- **VITE_API_BASE_URL** - Backend API base URL
+- **VITE_CUSTOM_CLAIM_NAMESPACE** - Custom namespace for Auth0 custom claims
