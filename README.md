@@ -1,16 +1,42 @@
-# React + Vite
+# Pizza42 - Single Page Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + Vite pizza ordering application with authentication, menu browsing, cart management, and order history.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Frontend Framework**: React 19
+- **Build Tool**: Vite 7
+- **Routing**: React Router v7
+- **Authentication**: Auth0
 
-## React Compiler
+## Project Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Core Architecture
+- **`src/app/`** - Application entry point
+  - `App.jsx` - Root component
+  - `Router.jsx` - Route configuration and protected routes
 
-## Expanding the ESLint configuration
+### Pages (`src/pages/`)
+- `MenuPage` - Browse available pizzas
+- `CartPage` - View and manage shopping cart
+- `OrderPage` - Checkout (protected route)
+- `ProfilePage` - User profile (protected route)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Components (`src/components/`)
+- **auth/** - Authentication UI (Login, Logout, Protected Routes)
+- **layout/** - Page layout (MainLayout, NavBar, Banner, Footer, LogoBar)
+- **menu/** - Menu display (Menu, MenuItem)
+- **cart/** - Cart management (Cart, CartItem, CartItemAction)
+- **orders/** - Order history (OrderHistory, OrderHistoryItem)
+- **nav/** - Navigation utilities (Navigation, Message)
+
+### State Management
+- **`src/context/CartContext.jsx`** - Global cart state using useReducer with localStorage persistence
+
+### Services (`src/services/`)
+- `apiClient.js` - Base API fetch wrapper
+- `menuApi.js` - Menu data API calls
+- `orderApi.js` - Order management API calls
+
+### Styling
+- **`src/assets/css/`** - Global and component styles
