@@ -16,7 +16,8 @@ createRoot(document.getElementById('root')).render(
         audience: import.meta.env.VITE_AUTH0_AUDIENCE,
         scope: "openid profile email offline_access create:orders"
       }}
-      cacheLocation="localstorage"
+      // SAFE DEFAULT FOR SPA 
+      cacheLocation="memory"
       useRefreshTokens={true}
     >
       <CartProvider>
