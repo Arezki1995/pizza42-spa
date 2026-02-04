@@ -9,17 +9,17 @@ import Message from "../components/nav/Message";
 export default function OrderPage() {
 
   const { user, getAccessTokenSilently, isAuthenticated } = useAuth0();
-  const { cart, clearCart, totalPrice} = useCart();
+  const { cart, clearCart, totalPrice } = useCart();
   const [orderConfirmed, setOrderConfirmed] = useState(null);
 
   async function handleSubmitOrder() {
     if (!isAuthenticated) {
-      setOrderConfirmed({title:"Warning", message:"You must be logged in to order"});
+      setOrderConfirmed({ title: "Warning", message: "You must be logged in to order" });
       return;
     }
 
-    if (!user.email_verified){
-      setOrderConfirmed({title:"Warning", message:"You need to verify your email to place an order!"});
+    if (!user.email_verified) {
+      setOrderConfirmed({ title: "Warning", message: "You need to verify your email to place an order!" });
       return;
     }
 
@@ -41,13 +41,13 @@ export default function OrderPage() {
       await createOrder(orderPayload, accessToken);
 
       clearCart();
-      setOrderConfirmed({title:"Success", message:"Your order is being processed."});
+      setOrderConfirmed({ title: "Success", message: "Your order is being processed." });
       return;
 
 
     } catch (err) {
       console.error(err);
-      setOrderConfirmed({title:"Failed", message:`An error occured when submitting your order.\n${err}`});
+      setOrderConfirmed({ title: "Failed", message: `An error occured when submitting your order.\n${err}` });
     }
   }
 
@@ -59,19 +59,19 @@ export default function OrderPage() {
             title={orderConfirmed.title}
             text={orderConfirmed.message}
           >
-          <Link to="/menu">Return to Menu</Link>
+            <Link to="/menu">Return to Menu</Link>
           </Message>
         ) : (
-        <div className="card order-confirmation">
-          <div className="order-confirmation-title">Confirm Order</div>
-          <div className="order-confirmation-text">Do you confirm the pizza order?</div>
-          <div className="cart-summary">
-            <div className="cart-total-price">{totalPrice}€</div>
-          </div>
-          <button className="btn-confirm-order" onClick={handleSubmitOrder}>
-            <FaRocket /> Confirm Order
-          </button>
-        </div>)
+          <div className="card order-confirmation">
+            <div className="order-confirmation-title">Confirm Order</div>
+            <div className="order-confirmation-text">Do you confirm the pizza order?</div>
+            <div className="cart-summary">
+              <div className="cart-total-price">{totalPrice}€</div>
+            </div>
+            <button className="btn-confirm-order" onClick={handleSubmitOrder}>
+              <FaRocket /> Confirm Order
+            </button>
+          </div>)
       }
     </>
 
