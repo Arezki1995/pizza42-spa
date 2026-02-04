@@ -1,22 +1,26 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { useCart } from "../context/CartContext";
+import { Link } from "react-router-dom";
 import { createOrder } from "../services/orderApi";
 import { FaRocket } from "react-icons/fa6";
+import { useState } from "react";
+import Message from "../components/nav/Message";
 
 export default function OrderPage() {
-  
+
   const { user, getAccessTokenSilently, isAuthenticated } = useAuth0();
-  const { cart, clearCart, totalPrice } = useCart();
+  const { cart, clearCart, totalPrice} = useCart();
+  const [orderConfirmed, setOrderConfirmed] = useState(null);
 
   async function handleSubmitOrder() {
     if (!isAuthenticated) {
-      alert("You must be logged in to order");
+      setOrderConfirmed({title:"Warning", message:"You must be logged in to order"});
       return;
     }
 
     if (!user.email_verified){
-      alert("You need to verify your email to place an order!");
-      return; 
+      setOrderConfirmed({title:"Warning", message:"You need to verify your email to place an order!"});
+      return;
     }
 
     try {
@@ -37,23 +41,39 @@ export default function OrderPage() {
       await createOrder(orderPayload, accessToken);
 
       clearCart();
-      alert("Order placed successfully!");
+      setOrderConfirmed({title:"Success", message:"Your order is being processed."});
+      return;
+
+
     } catch (err) {
       console.error(err);
-      alert("Failed to place order");
+      setOrderConfirmed({title:"Failed", message:`An error occured when submitting your order.\n${err}`});
     }
   }
 
   return (
-    <div className="card order-confirmation">
-      <div className="order-confirmation-title">Confirm Order</div>
-      <div className="order-confirmation-text">Do you confirm the pizza order?</div>
-      <div className="cart-summary">
-        <div className="cart-total-price">{totalPrice}€</div>
-      </div>
-      <button className="btn-confirm-order" onClick={handleSubmitOrder}>
-        <FaRocket /> Confirm Order
-      </button>
-    </div>
+    <>
+      {
+        orderConfirmed ? (
+          <Message
+            title={orderConfirmed.title}
+            text={orderConfirmed.message}
+          >
+          <Link to="/menu">Return to Menu</Link>
+          </Message>
+        ) : (
+        <div className="card order-confirmation">
+          <div className="order-confirmation-title">Confirm Order</div>
+          <div className="order-confirmation-text">Do you confirm the pizza order?</div>
+          <div className="cart-summary">
+            <div className="cart-total-price">{totalPrice}€</div>
+          </div>
+          <button className="btn-confirm-order" onClick={handleSubmitOrder}>
+            <FaRocket /> Confirm Order
+          </button>
+        </div>)
+      }
+    </>
+
   );
 }
