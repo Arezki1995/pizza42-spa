@@ -28,12 +28,17 @@ body {
   justify-content: space-between;
 }
 
+.email-verification-banner{
+  background-color: rgba(255, 255, 255, 0.753);
+  text-align: center;
+  line-height: 2rem;
+  margin-bottom: 1rem;
+}
 
 /* ### NAV BAR ### */
 .nav-bar {
   display: flex;
   position: sticky;
-  margin-bottom: 2rem;
   top: 0;
   z-index: 10;
   width: 100%;
@@ -154,6 +159,7 @@ body {
   min-height: 70vh;
   flex-direction: column;
   align-items: center;
+  margin-top: 2rem;
 }
 
 /* ### MESSAGE ###*/
